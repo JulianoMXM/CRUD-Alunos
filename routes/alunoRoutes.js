@@ -29,9 +29,7 @@ router.post('/', async (req, res) =>{
         name,
         age,
         ra,
-        cpf,
-        createdAt,
-        updatedAt
+        cpf
     }
 
     try{
