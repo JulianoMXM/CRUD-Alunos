@@ -76,16 +76,37 @@ router.get('/:id', async(req, res) =>{
     }
 })
 
-//  Update - Atualização de dados parcial
+//  Update - Atualização de Dados
 
 router.patch('/:id', async(req, res) => {
 
     const id = req.params.id
 
-    const { name, age, ra, cpf} = req
+    const { name, age, ra, cpf} = req.body
+
+    const aluno = {
+
+        name,
+        age,
+        ra,
+        cpf
+    }
+
+    try{
+
+        const updatedAluno = await Aluno.updateOne({_id: id}, aluno)
+
+        if(updatedAluno.matchedCount === 0){
+
+            res.status(422).json({error: 'Aluno não encontrado'})
+            return
+
+        }
+        res.status(200).json(aluno)
+
+    } catch(error){
+        res.status(500).json({error: error})
+    }
 
 })
-
-
-//  Update - Atualização de dados total
 module.exports = router
