@@ -54,4 +54,19 @@ router.get('/', async(req, res) =>{
     }
 })
 
+//  Read - Leitura de Dados de um aluno específico
+
+router.get('/:id', async(req, res) =>{
+
+    const id = req.params.id
+
+    try{
+
+        const aluno = await Aluno.findOne({_id: id})
+        res.status(200).json(aluno)
+        
+    }catch{
+        res.status(500).json({error: error})
+    }
+})
 module.exports = router
