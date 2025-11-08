@@ -1,7 +1,10 @@
 const router = require('express').Router()
+const Aluno = require('../models/Aluno')
 
 //  Rotas da API
-router.post('/alunos', async (req, res) =>{
+
+//  Create - Criação de Dados
+router.post('/', async (req, res) =>{
 
     const {name, age, ra, cpf, createdAt, updatedAt} = req.body
 
@@ -36,6 +39,19 @@ router.post('/alunos', async (req, res) =>{
         res.status(500).json({error: error})
     }
     
+})
+
+//  Read - Leitura de Dados
+
+router.get('/', async(req, res) =>{
+    try{
+
+        const alunos = await Aluno.find()
+        res.status(200).json(alunos)
+
+    }catch{
+        res.status(500).json({error: error})
+    }
 })
 
 module.exports = router
