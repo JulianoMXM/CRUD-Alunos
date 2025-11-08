@@ -16,7 +16,7 @@ app.use(express.json())
 //  Porta utilizada
 
 mongoose
-    .connect('mongodb+srv://User:UnectJr@projetounect.h56t2wl.mongodb.net/?appName=ProjetoUnect')
+    .connect('mongodb+srv://${DB_USER}:${DB_PASSWORD}@projetounect.h56t2wl.mongodb.net/?appName=ProjetoUnect')
     .then(() => {
         console.log('Conectado')
         app.listen(3000)
