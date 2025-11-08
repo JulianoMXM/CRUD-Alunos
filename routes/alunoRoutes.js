@@ -10,15 +10,19 @@ router.post('/', async (req, res) =>{
 
     if(!name){
         res.status(422).json({error: 'O nome é obrigatório.'})
+        return
     }
     if(!age){
         res.status(422).json({error: 'A idade é obrigatória'})
+        return
     }
     if(!ra){
         res.status(422).json({error: 'O RA é obrigatório.'})
+        return
     }
     if(!cpf){
         res.status(422).json({error: 'O CPF é obrigatório.'})
+        return
     }
 
     const aluno = {
