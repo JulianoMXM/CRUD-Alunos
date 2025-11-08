@@ -109,4 +109,30 @@ router.patch('/:id', async(req, res) => {
     }
 
 })
+
+//Delete - Deleta Dados
+
+router.delete('/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    const aluno = await Aluno.findOne({_id: id})
+
+    if(!aluno){
+
+        res.status(422).json({message: 'Aluno não encontrado.'})
+        return
+
+    }
+    try{
+
+        await Aluno.deleteOne({_id: id})
+        res.status(200).json({message: 'Aluno removido com sucesso.'})
+
+    }catch(error){
+
+        res.status(500).json({error: error})
+
+    }
+})
 module.exports = router
