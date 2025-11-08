@@ -77,4 +77,17 @@ router.get('/:id', async(req, res) =>{
         res.status(500).json({error: error})
     }
 })
+
+//  Update - Atualização de dados parcial
+
+router.patch('/:id', async(req, res) => {
+
+    const id = req.params.id
+
+    const { name, age, ra, cpf} = req
+
+})
+
+
+//  Update - Atualização de dados total
 module.exports = router
