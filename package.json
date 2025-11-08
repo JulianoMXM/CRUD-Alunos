@@ -1,0 +1,26 @@
+{
+  "name": "crud-alunos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "CRUD.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianoMXM/CRUD-Alunos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JulianoMXM/CRUD-Alunos/issues"
+  },
+  "homepage": "https://github.com/JulianoMXM/CRUD-Alunos#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3",
+    "nodemon": "^3.1.10"
+  }
+}
