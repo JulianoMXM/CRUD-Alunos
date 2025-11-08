@@ -67,6 +67,10 @@ router.get('/:id', async(req, res) =>{
     try{
 
         const aluno = await Aluno.findOne({_id: id})
+
+        if(!aluno){
+            res.status(422).json({error: 'Aluno não encontrado.'})
+        }
         res.status(200).json(aluno)
         
     }catch{
