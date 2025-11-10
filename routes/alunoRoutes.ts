@@ -4,9 +4,9 @@ const Aluno = require('../models/Aluno')
 //  Rotas da API
 
 //  Create - Criação de Dados
-router.post('/', async (req, res) =>{
+router.post('/', async (req: Request, res: Response) =>{
 
-    const {name, age, ra, cpf, createdAt, updatedAt} = req.body
+    const {name, age, ra, cpf} = req.body
 
     if(!name){
         res.status(422).json({error: 'O nome é obrigatório.'})
@@ -45,7 +45,7 @@ router.post('/', async (req, res) =>{
 
 //  Read - Leitura de Dados
 
-router.get('/', async(req, res) =>{
+router.get('/', async(req: Request, res: Response) =>{
     try{
 
         const alunos = await Aluno.find()
@@ -58,7 +58,7 @@ router.get('/', async(req, res) =>{
 
 //  Read - Leitura de Dados de um aluno específico
 
-router.get('/:id', async(req, res) =>{
+router.get('/:id', async(req: Request, res: Response) =>{
 
     const id = req.params.id
 
@@ -78,7 +78,7 @@ router.get('/:id', async(req, res) =>{
 
 //  Update - Atualização de Dados
 
-router.patch('/:id', async(req, res) => {
+router.patch('/:id', async(req: Request, res: Response) => {
 
     const id = req.params.id
 
