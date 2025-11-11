@@ -19,6 +19,9 @@ router.post('/', async (req: Request, res: Response) =>{
         res.status(422).json({error: 'A idade é obrigatória'})
         return
     }
+    if(age <= 0){
+        res.status(422).json({error: 'A idade não pode ser zero ou negativa.'})
+    }
     if(!ra){
         res.status(422).json({error: 'O RA é obrigatório.'})
         return
