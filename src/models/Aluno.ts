@@ -1,6 +1,6 @@
 import {Schema, model} from 'mongoose';
 
-interface IAluno extends Document{
+export interface IAluno extends Document{
 
     name: String,
     age: Number,
