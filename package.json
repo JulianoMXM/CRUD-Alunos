@@ -2,10 +2,10 @@
   "name": "crud-alunos",
   "version": "1.0.0",
   "description": "",
-  "main": "CRUD.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./CRUD.js localhost 3000"
+    "start": "nodemon ./src/server.ts localhost 3000"
   },
   "repository": {
     "type": "git",
