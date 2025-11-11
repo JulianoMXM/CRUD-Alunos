@@ -40,7 +40,10 @@ router.post('/', async (req: Request, res: Response) =>{
         res.status(201).json({message: 'Aluno cadastrado com sucesso.'})
 
     }catch(error){
-        res.status(500).json({error: error})
+        if(error instanceof Error){
+            res.status(500).json({error: error.message})
+        }
+        res.status(500).json({error: 'Erro desconhecido.'})
     }
     
 })
@@ -53,8 +56,11 @@ router.get('/', async(req: Request, res: Response) =>{
         const alunos = await Aluno.find()
         res.status(200).json(alunos)
 
-    }catch{
-        res.status(500).json({error: Error})
+    }catch(error){
+        if(error instanceof Error){
+            res.status(500).json({error: error.message})
+        }
+        res.status(500).json({error: 'Erro desconhecido.'})
     }
 })
 
@@ -73,8 +79,11 @@ router.get('/:id', async(req: Request, res: Response) =>{
         }
         res.status(200).json(aluno)
         
-    }catch{
-        res.status(500).json({error: Error})
+    }catch(error){
+        if(error instanceof Error){
+            res.status(500).json({error: error.message})
+        }
+        res.status(500).json({error: 'Erro desconhecido.'})
     }
 })
 
@@ -107,7 +116,10 @@ router.patch('/:id', async(req: Request, res: Response) => {
         res.status(200).json(aluno)
 
     } catch(error){
-        res.status(500).json({error: Error})
+        if(error instanceof Error){
+            res.status(500).json({error: error.message})
+        }
+        res.status(500).json({error: 'Erro desconhecido.'})
     }
 
 })
@@ -132,9 +144,10 @@ router.delete('/:id', async (req: Request, res: Response) => {
         res.status(200).json({message: 'Aluno removido com sucesso.'})
 
     }catch(error){
-
-        res.status(500).json({error: Error})
-
+        if(error instanceof Error){
+            res.status(500).json({error: error.message})
+        }
+        res.status(500).json({error: 'Erro desconhecido.'})
     }
 })
 
