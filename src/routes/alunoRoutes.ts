@@ -21,6 +21,7 @@ router.post('/', async (req: Request, res: Response) =>{
     }
     if(age <= 0){
         res.status(422).json({error: 'A idade não pode ser zero ou negativa.'})
+        return
     }
     if(!ra){
         res.status(422).json({error: 'O RA é obrigatório.'})
@@ -114,6 +115,11 @@ router.patch('/:id', async(req: Request, res: Response) => {
         age,
         ra,
         cpf
+    }
+
+    if(age <= 0){
+        res.status(422).json({error: 'A idade não pode ser zero ou negativa.'})
+        return
     }
 
     try{
