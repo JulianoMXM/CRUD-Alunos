@@ -1,11 +1,13 @@
-const router = require('express').Router()
+import {Router} from 'express';
+import type {Response, Request} from 'express';
+const router = Router();
 import Aluno from '../models/Aluno.js'
 
 //  Rotas da API
 
 //  Create - Criação de Dados
 router.post('/', async (req: Request, res: Response) =>{
-
+    
     const {name, age, ra, cpf} = req.body
 
     if(!name){
@@ -52,7 +54,7 @@ router.get('/', async(req: Request, res: Response) =>{
         res.status(200).json(alunos)
 
     }catch{
-        res.status(500).json({error: error})
+        res.status(500).json({error: Error})
     }
 })
 
@@ -72,7 +74,7 @@ router.get('/:id', async(req: Request, res: Response) =>{
         res.status(200).json(aluno)
         
     }catch{
-        res.status(500).json({error: error})
+        res.status(500).json({error: Error})
     }
 })
 
@@ -105,7 +107,7 @@ router.patch('/:id', async(req: Request, res: Response) => {
         res.status(200).json(aluno)
 
     } catch(error){
-        res.status(500).json({error: error})
+        res.status(500).json({error: Error})
     }
 
 })
@@ -131,8 +133,9 @@ router.delete('/:id', async (req, res) => {
 
     }catch(error){
 
-        res.status(500).json({error: error})
+        res.status(500).json({error: Error})
 
     }
 })
+
 module.exports = router
