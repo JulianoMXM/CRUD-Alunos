@@ -26,20 +26,10 @@ mongoose
         console.log('Conectado')
         app.listen(3000)
     })
-    .catch((err) => console.log(err))
+    .catch((error: Error) => console.log(Error))
 
 //  Rotas da API
 
 const alunoRoutes = require('./routes/alunoRoutes')
 
 app.use('/alunos', alunoRoutes)
-
-//  Rota inicial / endpoint
-
-app.get('/', (req, res) => {
-
-    res.json({
-        message: 'Teste resposta'
-    })
-
-})
