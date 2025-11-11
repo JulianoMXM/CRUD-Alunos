@@ -1,7 +1,7 @@
 //  Configuração inicial
-require('dotenv').config()
-const express = require('express')
-const { default: mongoose } = require('mongoose')
+import 'dotenv/config';
+import express from 'express';
+import mongoose from 'mongoose';
 const app = express()
 
 //  Configuração de leitura de JSON
@@ -30,6 +30,6 @@ mongoose
 
 //  Rotas da API
 
-const alunoRoutes = require('./routes/alunoRoutes')
-
+import {router as alunoRoutes} from './routes/alunoRoutes.js'
+    
 app.use('/alunos', alunoRoutes)
