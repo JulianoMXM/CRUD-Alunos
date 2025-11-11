@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import type {Response, Request} from 'express';
 const router = Router();
-import Aluno from '../models/Aluno.js'
+import {Aluno} from '../models/Aluno.js'
 
 //  Rotas da API
 
