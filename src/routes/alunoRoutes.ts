@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import type {Response, Request} from 'express';
-const router = Router();
+export const router = Router();
 import {Aluno} from '../models/Aluno.js'
 
 //  Rotas da API
@@ -150,5 +150,3 @@ router.delete('/:id', async (req: Request, res: Response) => {
         res.status(500).json({error: 'Erro desconhecido.'})
     }
 })
-
-module.exports = router
