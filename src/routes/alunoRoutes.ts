@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Aluno = require('../models/Aluno')
+import Aluno from '../models/Aluno.js'
 
 //  Rotas da API
 
