@@ -3,6 +3,7 @@ import type {Response, Request} from 'express';
 export const router = Router();
 import {Aluno, type IAluno} from '../models/Aluno.js'
 import type { FilterQuery } from 'mongoose';
+import dayjs from 'dayjs'
 
 //  Rotas da API
 
@@ -36,7 +37,9 @@ router.post('/', async (req: Request, res: Response) =>{
         name,
         age,
         ra,
-        cpf
+        cpf,
+        createdAt: dayjs().toDate(),
+        updatedAt: dayjs().toDate()
     }
 
     try{
@@ -114,7 +117,8 @@ router.patch('/:id', async(req: Request, res: Response) => {
         name,
         age,
         ra,
-        cpf
+        cpf,
+        updatedAt: dayjs().toDate()
     }
 
     if(age <= 0){
