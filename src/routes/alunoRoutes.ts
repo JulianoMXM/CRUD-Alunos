@@ -1,7 +1,8 @@
 import {Router} from 'express';
 import type {Response, Request} from 'express';
 export const router = Router();
-import {Aluno} from '../models/Aluno.js'
+import {Aluno, type IAluno} from '../models/Aluno.js'
+import type { FilterQuery } from 'mongoose';
 
 //  Rotas da API
 
@@ -51,9 +52,18 @@ router.post('/', async (req: Request, res: Response) =>{
 //  Read - Leitura de Dados
 
 router.get('/', async(req: Request, res: Response) =>{
+    
+    const filter: FilterQuery<IAluno> = {}
+    const {name, ra} = req.query
+    
+    if(ra){
+        filter.ra = String(ra)
+    }else if(name){
+        filter.name = {$regex: String(name), $options: 'i'}
+    }
+    
     try{
-
-        const alunos = await Aluno.find()
+        const alunos = await Aluno.find(filter)
         res.status(200).json(alunos)
 
     }catch(error){
