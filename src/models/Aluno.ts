@@ -20,9 +20,7 @@ const alunoSchema = new Schema<IAluno>({
     updatedAt: Date,
 })
 
-const Aluno = model<IAluno>('Aluno', alunoSchema)
-
-export default Aluno;
+export const Aluno = model<IAluno>('Aluno', alunoSchema)
 
 /*type Aluno = mongoose.model('Aluno', {
 
